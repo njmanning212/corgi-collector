@@ -1,4 +1,6 @@
 from django.shortcuts import render 
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Corgi
 
 def home(request):
@@ -14,3 +16,7 @@ def corgis_index(request):
 def corgis_detail(request, corgi_id):
   corgi = Corgi.objects.get(id=corgi_id)
   return render(request, 'corgis/detail.html', { 'corgi': corgi })
+
+class CorgiCreate(CreateView):
+  model = Corgi
+  fields = ['name', 'type', 'description', 'age']

@@ -6,4 +6,5 @@ urlpatterns = [
   path('about/', views.about, name='about'),
   path('corgis/', views.corgis_index, name='corgi-index'),
   path('corgis/<int:corgi_id>/', views.corgis_detail, name='corgi-detail'),
+  path('corgis/create/', views.CorgiCreate.as_view(), name='corgi-create'),
 ]
