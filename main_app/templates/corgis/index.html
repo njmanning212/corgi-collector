@@ -21,7 +21,7 @@
 <section class="card-container">
   {% for corgi in corgis %}
     <div class="card">
-      <a href="/corgis/{{corgi.id}}">
+      <a href="{% url 'corgi-detail' corgi.id %}">
         <div class="card-content">
           <div class="card-img-container">
             <img 
