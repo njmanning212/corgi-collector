@@ -11,7 +11,11 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Add a Corgi</h1>
+  {% if corgi %}
+    <h1>Edit {{corgi.name}}</h1>
+  {% else %}
+    <h1>Add a Corgi</h1>
+  {% endif %}
   <img src="{% static 'images/nerd-cat.svg' %}" alt="A cat using a computer"/>
 </div>
 

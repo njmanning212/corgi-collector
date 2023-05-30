@@ -20,11 +20,15 @@
   <div class="cat-details">
     <h1>{{ corgi.name }}</h1>
     {% if corgi.age > 0 %}
-      <h2>A {{ corgi.age }} year old {{ corgi.breed }}</h2>
+      <h2>A {{ corgi.age }} year old {{ corgi.type }}</h2>
     {% else %}
-      <h2>A {{ corgi.breed }} puppy.</h2>
+      <h2>A {{ corgi.type }} puppy.</h2>
     {% endif %}
     <p>{{ corgi.description }}</p>
+    <div class="cat-actions">
+      <a href="{% url 'corgi-update' corgi.id %}" class="btn warm">Edit</a>
+      <a href="{% url 'corgi-delete' corgi.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

@@ -20,3 +20,11 @@ def corgis_detail(request, corgi_id):
 class CorgiCreate(CreateView):
   model = Corgi
   fields = ['name', 'type', 'description', 'age']
+
+class CorgiUpdate(UpdateView):
+  model = Corgi
+  fields = ['type', 'description', 'age']
+
+class CorgiDelete(DeleteView):
+  model = Corgi
+  success_url = '/corgis/'
