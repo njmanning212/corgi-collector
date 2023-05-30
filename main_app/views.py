@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
-
 class Corgi:
   def __init__(self, name, type, description, age):
     self.name = name
@@ -17,7 +15,7 @@ corgis = [
 ]    
 
 def home(request):
-  return HttpResponse('<h1>Corgi Collector</h1>')
+  return render(request, 'home.html')
 
 
 def about(request):
