@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link
+  type="text/css"
+  rel="stylesheet" 
+  href="{% static 'css/corgis/corgi-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="cat-container">
+  <div class="cat-img">
+    <img 
+      src="{% static 'images/sk8r-boi-cat.svg' %}" 
+      alt="A skater boy cat"
+    >
+  </div>
+  <div class="cat-details">
+    <h1>{{ corgi.name }}</h1>
+    {% if corgi.age > 0 %}
+      <h2>A {{ corgi.age }} year old {{ corgi.breed }}</h2>
+    {% else %}
+      <h2>A {{ corgi.breed }} puppy.</h2>
+    {% endif %}
+    <p>{{ corgi.description }}</p>
+  </div>
+</section>
+
+{% endblock %}

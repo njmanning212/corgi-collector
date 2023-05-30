@@ -10,3 +10,7 @@ def about(request):
 def corgis_index(request):
   corgis = Corgi.objects.all()
   return render(request, 'corgis/index.html', { 'corgis': corgis })
+
+def corgis_detail(request, corgi_id):
+  corgi = Corgi.objects.get(id=corgi_id)
+  return render(request, 'corgis/detail.html', { 'corgi': corgi })
