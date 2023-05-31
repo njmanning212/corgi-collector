@@ -10,4 +10,5 @@ urlpatterns = [
   path('corgis/<int:pk>/update/', views.CorgiUpdate.as_view(), name='corgi-update'),
   path('corgis/<int:pk>/delete/', views.CorgiDelete.as_view(), name='corgi-delete'),
   path('corgis/<int:corgi_id>/add-feeding/', views.add_feeding, name='add-feeding'),
+  path('toys/create/', views.ToyCreate.as_view(), name='toy-create'),
 ]

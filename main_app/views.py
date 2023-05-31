@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Corgi
+from .models import Corgi, Toy
 from .forms import FeedingForm
 
 def home(request):
@@ -41,3 +41,7 @@ def add_feeding(request, corgi_id):
     new_feeding.corgi_id = corgi_id
     new_feeding.save()
   return redirect('corgi-detail', corgi_id=corgi_id)
+
+class ToyCreate(CreateView):
+  model = Toy
+  fields = '__all__'
