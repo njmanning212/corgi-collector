@@ -71,19 +71,25 @@
     </form>
 
     <h3>Feedings History</h3>
-    <table>
-      <thead>
-        <tr><th>Date</th><th>Meal</th></tr>
-      </thead>
-      <tbody>
-        {% for feeding in corgi.feeding_set.all %}
-          <tr>
-            <td>{{feeding.date}}</td>
-            <td>{{feeding.get_meal_display}}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    {% if corgi.feedin_set.all.count %}
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Meal</th></tr>
+        </thead>
+        <tbody>
+          {% for feeding in corgi.feeding_set.all %}
+            <tr>
+              <td>{{feeding.date}}</td>
+              <td>{{feeding.get_meal_display}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="subsection-content">
+        <p>{{corgi.name}} has never been fed 😔</p>
+      </div>
+    {% endif %}
   </section>
 </div>
 
