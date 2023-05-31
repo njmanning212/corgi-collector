@@ -65,13 +65,18 @@
       method="post"
       class="subsection-content"    
     >
+      {% if corgi.fed_for_today %}
+        <p class="fed">{{corgi.name}} has already been fed today.</p>
+      {% else %}
+        <p class="unfed">{{corgi.name}} might be hungry</p>
+      {% endif %}
       {% csrf_token %}
       {{ feeding_form.as_p }}
       <button type="submit" class="btn submit">Add Feeding</button>
     </form>
 
     <h3>Feedings History</h3>
-    {% if corgi.feedin_set.all.count %}
+    {% if corgi.feeding_set.all.count %}
       <table>
         <thead>
           <tr><th>Date</th><th>Meal</th></tr>
