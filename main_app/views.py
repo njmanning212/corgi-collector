@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Corgi
+from .forms import FeedingForm
 
 def home(request):
   return render(request, 'home.html')
@@ -15,7 +16,11 @@ def corgis_index(request):
 
 def corgis_detail(request, corgi_id):
   corgi = Corgi.objects.get(id=corgi_id)
-  return render(request, 'corgis/detail.html', { 'corgi': corgi })
+  feeding_form = FeedingForm()
+  return render(request, 'corgis/detail.html', { 
+    'corgi': corgi,
+    'feeding_form': feeding_form 
+  })
 
 class CorgiCreate(CreateView):
   model = Corgi
