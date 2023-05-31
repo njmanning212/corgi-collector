@@ -52,3 +52,11 @@ class ToyList(ListView):
 
 class ToyDetail(DetailView):
   model = Toy
+
+class ToyDelete(DeleteView):
+  model = Toy
+  success_url = '/toys/'
+
+class ToyUpdate(UpdateView):
+  model = Toy
+  fields = ['name', 'color']
