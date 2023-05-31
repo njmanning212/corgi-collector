@@ -20,7 +20,7 @@ class Corgi(models.Model):
       return reverse('corgi-detail', kwargs={'corgi_id': self.id})
 
 class Feeding(models.Model):
-    date = models.DateField()
+    date = models.DateField('Feeding date')
     meal = models.CharField(
       max_length=1,
       choices=MEALS,
