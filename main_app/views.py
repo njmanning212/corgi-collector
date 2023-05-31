@@ -18,9 +18,11 @@ def corgis_index(request):
 def corgis_detail(request, corgi_id):
   corgi = Corgi.objects.get(id=corgi_id)
   feeding_form = FeedingForm()
+  toys_corgi_doesnt_have = Toy.objects.exclude(id__in = corgi.toys.all().values_list('id'))
   return render(request, 'corgis/detail.html', { 
     'corgi': corgi,
-    'feeding_form': feeding_form 
+    'feeding_form': feeding_form, 
+    'toys': toys_corgi_doesnt_have 
   })
 
 class CorgiCreate(CreateView):
@@ -60,3 +62,7 @@ class ToyDelete(DeleteView):
 class ToyUpdate(UpdateView):
   model = Toy
   fields = ['name', 'color']
+
+def assoc_toy(request, corgi_id, toy_id):
+  Corgi.objects.get(id=corgi_id).toys.add(toy_id)
+  return redirect('corgi-detail', corgi_id=corgi_id)
