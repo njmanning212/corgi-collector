@@ -63,7 +63,8 @@
     <form 
       action="{% url 'add-feeding' corgi.id %}"
       method="post"
-      class="subsection-content"    
+      class="subsection-content"  
+      autocomplete="off"  
     >
       {% if corgi.fed_for_today %}
         <p class="fed">{{corgi.name}} has already been fed today.</p>
