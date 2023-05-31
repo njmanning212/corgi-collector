@@ -115,6 +115,10 @@
             <a href="{% url 'toy-detail' toy.id %}">
               <p>A {{ toy.color }} {{ toy.name }}</p>
             </a>
+            <form action="{% url 'unassoc-toy' corgi.id toy.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit"class="btn danger">Take Toy</button>
+            </form>
           </div>
         {% endfor %}
       {% else %}
