@@ -14,7 +14,7 @@ def about(request):
   return render(request, 'about.html')
 
 def corgis_index(request):
-  corgis = Corgi.objects.all()
+  corgis = Corgi.objects.filter(user=request.user)
   return render(request, 'corgis/index.html', { 'corgis': corgis })
 
 def corgis_detail(request, corgi_id):
