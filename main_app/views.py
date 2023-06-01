@@ -30,6 +30,10 @@ class CorgiCreate(CreateView):
   model = Corgi
   fields = ['name', 'type', 'description', 'age']
 
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
 class CorgiUpdate(UpdateView):
   model = Corgi
   fields = ['type', 'description', 'age']
